@@ -1,3 +1,5 @@
+package FlyWeight;
+
 import java.net.URL;
 import java.util.ArrayList;
 
