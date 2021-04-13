@@ -1,25 +1,25 @@
-package FlyWeight;
+package flyWeight;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 public class FlyWeight {
     private static FlyWeight instance;
 
 
-    private HashMap<String, BufferedImage> images;
+    private final HashMap<URL, BufferedImage> images;
     private FlyWeight() {
         images = new HashMap<>();
     }
 
-    public BufferedImage getImage(String path) throws IOException {
-        if (!images.containsKey(path)) {
-            images.put(path, ImageIO.read(new File(path)));
+    public BufferedImage getImage(URL url) throws IOException {
+        if (!images.containsKey(url)) {
+            images.put(url, ImageIO.read(url));
         }
-        return images.get(path);
+        return images.get(url);
     }
 
     public static FlyWeight getInstance() {

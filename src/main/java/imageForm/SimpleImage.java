@@ -1,11 +1,14 @@
-package ImageForm;
+package imageForm;
 
 import java.awt.image.BufferedImage;
 
 public class SimpleImage {
 
-    private BufferedImage image;
-    private int x,y, width,height;
+    private final BufferedImage image;
+    private final int x;
+    private final int y;
+    private final int width;
+    private final int height;
 
     public SimpleImage(BufferedImage image, int x, int y, int width, int height) {
         this.image = image;

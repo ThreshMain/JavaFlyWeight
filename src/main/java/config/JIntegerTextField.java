@@ -20,7 +20,7 @@ public class JIntegerTextField extends JTextField {
         });
     }
 
-    public int getValue() {
+    public int getIntValue() {
         return value;
     }
 }

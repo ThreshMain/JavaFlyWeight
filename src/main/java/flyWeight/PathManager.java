@@ -1,27 +1,27 @@
-package FlyWeight;
+package flyWeight;
 
 import java.net.URL;
 import java.util.ArrayList;
 
 public class PathManager {
     private static PathManager instance;
-    private ArrayList<String> paths;
+    private final ArrayList<URL> urls;
 
     private PathManager() {
-        paths = new ArrayList<>();
+        urls = new ArrayList<>();
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource;
         String[] fileNames = new String[]{"water.jpeg", "grass.jpeg", "stone.jpeg", "cloud.jpeg"};
         for (String fileName : fileNames) {
             resource = classLoader.getResource(fileName);
             if (resource != null) {
-                paths.add(resource.getPath());
+                urls.add(resource);
             }
         }
     }
 
-    public ArrayList<String> getPaths() {
-        return new ArrayList<>(paths);
+    public ArrayList<URL> getUrls() {
+        return new ArrayList<>(urls);
     }
 
     public static PathManager getInstance() {
@@ -31,11 +31,11 @@ public class PathManager {
         return instance;
     }
 
-    public String getPath(int i) {
-        return paths.get(i);
+    public URL getURL(int i) {
+        return urls.get(i);
     }
 
     public int getSize() {
-        return paths.size();
+        return urls.size();
     }
 }
